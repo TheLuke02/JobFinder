@@ -4,7 +4,7 @@
     die('You cannot access to the page');
   }
 
-  include("config.php");
+  include("../.gitignore/config.php");
 
   $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
   $pw = filter_var($_POST['password'], FILTER_SANITIZE_STRING);

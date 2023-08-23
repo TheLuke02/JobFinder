@@ -7,7 +7,7 @@
     session_start();
 
     if (isset($_SESSION["ID"])) {
-        include("../config.php");
+        include("../.gitignore/config.php");
 
         $Titolo = filter_var($_POST["Titolo"], FILTER_SANITIZE_ADD_SLASHES);
         $Figura = filter_var($_POST["Figura"], FILTER_SANITIZE_ADD_SLASHES);

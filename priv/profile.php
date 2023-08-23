@@ -1,5 +1,5 @@
 <?php
-    include("../config.php");
+    include("../.gitignore/config.php");
 
     session_start();
 

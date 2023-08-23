@@ -4,7 +4,7 @@
         die('You cannot access to the page');
     }
 
-    include("../config.php");
+    include("../.gitignore/config.php");
     
     $Nome = filter_var($_POST["Nome"], FILTER_SANITIZE_ADD_SLASHES);
     $Cognome = filter_var($_POST["Cognome"], FILTER_SANITIZE_ADD_SLASHES);

@@ -7,7 +7,7 @@
     session_start();
 
     if (isset($_SESSION["ID"])) {
-        include("../config.php");
+        include("../.gitignore/config.php");
 
         $IDUtente = filter_var($_POST["IDUtente"], FILTER_SANITIZE_ADD_SLASHES);
         $IDInserzione = filter_var($_POST["IDInserzione"], FILTER_SANITIZE_ADD_SLASHES);

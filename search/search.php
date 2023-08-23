@@ -3,7 +3,7 @@
         die('You cannot access to the page');
     }
 
-    include("../config.php");
+    include("../.gitignore/config.php");
 
     $Titolo = filter_var($_POST["Titolo"], FILTER_SANITIZE_ADD_SLASHES);
     $Provincia = filter_var($_POST["Provincia"], FILTER_SANITIZE_ADD_SLASHES);
