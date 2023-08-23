@@ -1,0 +1,36 @@
+[33mcommit 1deaa1fb345ced40ff2a8f39c067d9d47cfb5437[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 20a25f6 5852656
+Author: Luca La Spina <lucalaspina2002@gmail.com>
+Date:   Wed Aug 23 11:31:41 2023 +0200
+
+    Merge branch 'main' of https://github.com/TheLuke02/JobFinder
+
+[33mcommit 20a25f685c469f04c5085d47e4d9f1e4fd4d23ca[m
+Author: Luca La Spina <lucalaspina2002@gmail.com>
+Date:   Wed Aug 23 11:23:33 2023 +0200
+
+    Adding images
+
+[33mcommit 58526566e40d0235cdb46ebbd578f53c860180fa[m[33m ([m[1;31mjobfinder/main[m[33m)[m
+Author: Luca La Spina <42915004+TheLuke02@users.noreply.github.com>
+Date:   Wed Aug 23 11:10:10 2023 +0200
+
+    Delete config.php
+
+[33mcommit ea828faa54051272dadd34ddeef019a8c624c4bf[m
+Author: Luca La Spina <42915004+TheLuke02@users.noreply.github.com>
+Date:   Wed Aug 23 11:08:45 2023 +0200
+
+    Update config.php
+
+[33mcommit df0caa952896b4763bf64a28945834c1f0e7cfc5[m
+Author: Luca La Spina <lucalaspina2002@gmail.com>
+Date:   Wed Aug 23 11:07:24 2023 +0200
+
+    Upload of the file
+
+[33mcommit 9a630792815e7dcc476e49db289cbb59803cab60[m
+Author: Luca La Spina <42915004+TheLuke02@users.noreply.github.com>
+Date:   Wed Aug 23 11:00:21 2023 +0200
+
+    Initial commit
