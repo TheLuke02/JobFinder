@@ -9,8 +9,8 @@
     if (isset($_SESSION["ID"])) {
         include("../config.php");
 
-        $IDUtente = filter_var($_POST["IDUtente"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $IDInserzione = filter_var($_POST["IDInserzione"], FILTER_SANITIZE_MAGIC_QUOTES);
+        $IDUtente = filter_var($_POST["IDUtente"], FILTER_SANITIZE_ADD_SLASHES);
+        $IDInserzione = filter_var($_POST["IDInserzione"], FILTER_SANITIZE_ADD_SLASHES);
     
         try{
             $db = new PDO($cnn , "$db_user", "$db_psw");

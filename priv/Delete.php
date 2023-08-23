@@ -9,7 +9,7 @@
     if (isset($_SESSION["ID"])) {
         include("../config.php");
 
-        $ID = filter_var($_POST["ID"], FILTER_SANITIZE_MAGIC_QUOTES);
+        $ID = filter_var($_POST["ID"], FILTER_SANITIZE_ADD_SLASHES);
 
         try{
             $db = new PDO($cnn , "$db_user", "$db_psw");

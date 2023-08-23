@@ -6,18 +6,18 @@
 
     include("../config.php");
     
-    $Nome = filter_var($_POST["Nome"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Email = filter_var($_POST["Email"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Password = filter_var($_POST["Password"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Telefono = filter_var($_POST["Telefono"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Via = filter_var($_POST["Via"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Città = filter_var($_POST["Città"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Regione = filter_var($_POST["Regione"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $CodicePostale = filter_var($_POST["CodicePostale"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Telefono = filter_var($_POST["Telefono"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $NDip = filter_var($_POST["NDipendenti"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Bio = filter_var($_POST["BioAzienda"], FILTER_SANITIZE_MAGIC_QUOTES);
-    $Provincia = filter_var($_POST["Provincia"], FILTER_SANITIZE_MAGIC_QUOTES);
+    $Nome = filter_var($_POST["Nome"], FILTER_SANITIZE_ADD_SLASHES);
+    $Email = filter_var($_POST["Email"], FILTER_SANITIZE_ADD_SLASHES);
+    $Password = filter_var($_POST["Password"], FILTER_SANITIZE_ADD_SLASHES);
+    $Telefono = filter_var($_POST["Telefono"], FILTER_SANITIZE_ADD_SLASHES);
+    $Via = filter_var($_POST["Via"], FILTER_SANITIZE_ADD_SLASHES);
+    $Città = filter_var($_POST["Città"], FILTER_SANITIZE_ADD_SLASHES);
+    $Regione = filter_var($_POST["Regione"], FILTER_SANITIZE_ADD_SLASHES);
+    $CodicePostale = filter_var($_POST["CodicePostale"], FILTER_SANITIZE_ADD_SLASHES);
+    $Telefono = filter_var($_POST["Telefono"], FILTER_SANITIZE_ADD_SLASHES);
+    $NDip = filter_var($_POST["NDipendenti"], FILTER_SANITIZE_ADD_SLASHES);
+    $Bio = filter_var($_POST["BioAzienda"], FILTER_SANITIZE_ADD_SLASHES);
+    $Provincia = filter_var($_POST["Provincia"], FILTER_SANITIZE_ADD_SLASHES);
 
     $Password = md5($Password);
 

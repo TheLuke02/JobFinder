@@ -9,13 +9,13 @@
     if (isset($_SESSION["ID"])) {
         include("../config.php");
 
-        $Titolo = filter_var($_POST["Titolo"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Figura = filter_var($_POST["Figura"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Anni = filter_var($_POST["Anni"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Contratto = filter_var($_POST["Contratto"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Salario = filter_var($_POST["Salario"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Studio = filter_var($_POST["Studio"], FILTER_SANITIZE_MAGIC_QUOTES);
-        $Descrizione = filter_var($_POST["Descrizione"], FILTER_SANITIZE_MAGIC_QUOTES);
+        $Titolo = filter_var($_POST["Titolo"], FILTER_SANITIZE_ADD_SLASHES);
+        $Figura = filter_var($_POST["Figura"], FILTER_SANITIZE_ADD_SLASHES);
+        $Anni = filter_var($_POST["Anni"], FILTER_SANITIZE_ADD_SLASHES);
+        $Contratto = filter_var($_POST["Contratto"], FILTER_SANITIZE_ADD_SLASHES);
+        $Salario = filter_var($_POST["Salario"], FILTER_SANITIZE_ADD_SLASHES);
+        $Studio = filter_var($_POST["Studio"], FILTER_SANITIZE_ADD_SLASHES);
+        $Descrizione = filter_var($_POST["Descrizione"], FILTER_SANITIZE_ADD_SLASHES);
 
         try{
             $db = new PDO($cnn , "$db_user", "$db_psw");
