@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Mio css -->
+    <link rel="stylesheet" href="css/background.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="https://lucalaspina.netsons.org/image/icon.png"/>
+
+    <title>JobFinder</title>
+
+    <!-- Chiamate Ajax -->
+    <script>
+      function Check(TypeForm){
+        if(TypeForm == "Utenti"){
+          var Email = $("#UserEmail").val();
+          var Password = $("#UserPassword").val();
+        }else{
+          var Email = $("#EnterpriseEmail").val();
+          var Password = $("#EnterprisePassword").val();
+        }
+
+        $.ajax({
+          type: "POST",
+          url: "login.php",
+          data: {"email" : Email, "password" : Password, "table" : TypeForm},
+          dataType: "json",
+
+          success: function(response){
+            // creare una risposta in ajax che funzioni con la sessione
+            if(TypeForm == "Utenti"){
+              if(response == true){
+                document.getElementById('LoginErrorUser').innerHTML = 'Login avvenuto con successo.';
+                document.getElementById("LoginErrorUser").classList.remove('text-danger');
+                document.getElementById("LoginErrorUser").classList.toggle('text-success');
+                window.location = 'https://lucalaspina.netsons.org/JobFinder/index.php';
+              }else{
+                document.getElementById('LoginErrorUser').innerHTML = 'Credenziali errate o inesistenti.';
+                document.getElementById("LoginErrorUser").classList.remove('text-success');
+                document.getElementById("LoginErrorUser").classList.toggle('text-danger');
+              }
+            }else{
+              if(response == true){
+                document.getElementById('LoginErrorEnterprise').innerHTML = 'Login avvenuto con successo.';
+                document.getElementById("LoginErrorEnterprise").classList.remove('text-danger');
+                document.getElementById("LoginErrorEnterprise").classList.toggle('text-success');
+                window.location = 'https://lucalaspina.netsons.org/JobFinder/index.php';
+              }else{
+                document.getElementById('LoginErrorEnterprise').innerHTML = 'Credenziali errate o inesistenti.';
+                document.getElementById("LoginErrorEnterprise").classList.remove('text-danger');
+                document.getElementById("LoginErrorEnterprise").classList.toggle('text-danger');
+              }
+            }
+          },
+          error: function(xhr, ajaxOptions, thrownError, response) {
+            console.log(response);
+              alert(response);
+              alert(xhr.status);
+              alert(thrownError);
+          }
+        });
+      }
+    </script>
+
+  </head>
+  <body>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-family: 'Roboto Slab', serif;">
+      <div class="container">
+        <a class="navbar-brand" href="https://lucalaspina.netsons.org/JobFinder/" style="color: #9AFF0D">JobFinder</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./search/index.php">Cerca lavoro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalError" href="#">Il mio profilo</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #9AFF0D">
+                <img src="../image/user.png" width="25" height="25" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#UserModal" style="color: #9AFF0D">
+                    Area Utente
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#EnterpriseModal" style="color: #9AFF0D">
+                    Area Aziendale
+                  </button>
+                </li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br><br>
+    <br><br>
+
+    <!-- Body del sito -->
+    <div class="container">
+        <div class="display-1 text-center" style="font-family: 'Pacifico', coursive;">
+          JobFinder
+        </div>
+        <br>
+        <div class="h4 text-center" style="font-family: 'Crete Round', serif;">
+          Cerca il tuo prossimo lavoro con noi, non te ne pentirai!
+        </div>
+        <hr>
+        <br>
+
+      <!-- Carosello -->
+      <div id="carouselExampleIndicators" class="carousel slide shadow-lg d-sm-block" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner shadow-lg">
+          <div class="carousel-item active">
+            <img src="../image/1.png" class="d-block w-100 rounded shadow-lg" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../image/2.gif" class="d-block w-100 rounded shadow-lg" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../image/3.png" class="d-block w-100 rounded shadow-lg" alt="...">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- UserModal Login -->
+    <div class="modal fade" id="UserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login Utente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control"  id="UserEmail" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="UserPassword">
+              </div>
+              <div id="LoginErrorUser" class="fw-bold text-center">
+              </div>
+              <br>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" onclick="Check('Utenti')">Invia</button>
+                <a href="https://lucalaspina.netsons.org/JobFinder/aut/UserRegister.html">
+                  <button type="button" class="btn btn-success">Registrati</button>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EnterpriseModal Login -->
+    <div class="modal fade" id="EnterpriseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login Azienda</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="EnterpriseEmail" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="EnterprisePassword">
+              </div>
+              <div id="LoginErrorEnterprise" class="fw-bold text-center">
+              </div>
+              <br>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" onclick="Check('Aziende')">Invia</button>
+                <a href="https://lucalaspina.netsons.org/JobFinder/aut/EnterpriseRegister.html">
+                  <button type="button" class="btn btn-success">Registrati</button>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ModalError -->
+    <div class="modal fade" id="ModalError" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Attenzione!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Per poter utilizzare questa funzione devi prima effettuare l'accesso al sito!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Okay!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

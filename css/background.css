@@ -1,0 +1,4 @@
+body, html{
+  background: linear-gradient(#9aff0d, #00ffff) no-repeat;
+  background-attachment: fixed;
+}
