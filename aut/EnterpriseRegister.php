@@ -109,7 +109,7 @@
                                     <h1 class="display-1" style="font-family: 'Pacifico', cursive;">JobFinder</h1>
                                     <h1 class="display-6" style="font-family: 'Roboto Slab';">Il tuo account Aziendale è stato creato correttamente.</h1>
                                     <hr>
-                                    <a href="https://jobfinder.netsons.org/JobFinder">
+                                    <a href="https://jobfinder.netsons.org/">
                                         <button type="button" class="btn btn-success">Torna indietro</button>
                                     </a>
                                 </div>
