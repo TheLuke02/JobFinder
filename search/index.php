@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="https://lucalaspina.netsons.org/image/icon.png"/>
+    <link rel="shortcut icon" href="https://jobfinder.netsons.org/image/icon.png"/>
 
     <title>JobFinder</title>
 
@@ -228,9 +228,9 @@
       <div class="container">
       <?php
         if(isset($_SESSION["ID"])){
-          echo '<a class="navbar-brand" href="https://lucalaspina.netsons.org/JobFinder/index.php" style="color: #9AFF0D">JobFinder</a>';
+          echo '<a class="navbar-brand" href="https://jobfinder.netsons.org/index.php" style="color: #9AFF0D">JobFinder</a>';
         }else{
-          echo '<a class="navbar-brand" href="https://lucalaspina.netsons.org/JobFinder/index.html" style="color: #9AFF0D">JobFinder</a>';
+          echo '<a class="navbar-brand" href="https://jobfinder.netsons.org/index.html" style="color: #9AFF0D">JobFinder</a>';
         }
       ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -241,9 +241,9 @@
             <li class="nav-item">
               <?php
                 if(isset($_SESSION["ID"])){
-                  echo '<a class="nav-link" href="https://lucalaspina.netsons.org/JobFinder/index.php">Home</a>';
+                  echo '<a class="nav-link" href="https://jobfinder.netsons.org/index.php">Home</a>';
                 }else{
-                  echo '<a class="nav-link" href="https://lucalaspina.netsons.org/JobFinder/index.html">Home</a>';
+                  echo '<a class="nav-link" href="https://jobfinder.netsons.org/index.html">Home</a>';
                 }
               ?>
             </li>
@@ -253,7 +253,7 @@
             <li class="nav-item">
               <?php
                 if(isset($_SESSION["ID"])){
-                  echo '<a class="nav-link" href="https://lucalaspina.netsons.org/JobFinder/priv/profile.php">Il mio profilo</a>';
+                  echo '<a class="nav-link" href="https://jobfinder.netsons.org/priv/profile.php">Il mio profilo</a>';
                 }else{
                   echo '<a class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalError" href="#">Il mio profilo</a>';
                 }

@@ -28,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="https://lucalaspina.netsons.org/image/icon.png"/>
+    <link rel="shortcut icon" href="https://jobfinder.netsons.org/image/icon.png"/>
 
     <title>JobFinder</title>
 
@@ -41,7 +41,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-family: 'Roboto Slab', serif;">
       <div class="container">
-        <a class="navbar-brand" href="https://lucalaspina.netsons.org/JobFinder/index.php" style="color: #9AFF0D">JobFinder</a>
+        <a class="navbar-brand" href="https://jobfinder.netsons.org/index.php" style="color: #9AFF0D">JobFinder</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,7 +54,7 @@
               <a class="nav-link" href="./search/index.php">Cerca lavoro</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://lucalaspina.netsons.org/JobFinder/priv/profile.php">Il mio profilo</a>
+              <a class="nav-link" href="https://jobfinder.netsons.org/priv/profile.php">Il mio profilo</a>
             </li>
           </ul>
           <ul class="navbar-nav">
